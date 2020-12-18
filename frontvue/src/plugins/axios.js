@@ -30,9 +30,9 @@ _axios.interceptors.request.use(
 // Add a response interceptor
 _axios.interceptors.response.use(
   function(response) {
-    // Do something with response data
+    // Do something with  response data
     return response;
-  },
+  }, 
   function(error) {
     // Do something with response error
     return Promise.reject(error);

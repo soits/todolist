@@ -6,7 +6,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import ApiCall from '../views/ApiGetTest.vue'
 
-
+ 
 Vue.use(VueRouter)
 
 const routes = [

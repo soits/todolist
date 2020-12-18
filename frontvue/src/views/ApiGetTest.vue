@@ -10,7 +10,7 @@
   <ul v-if="toDoItems && toDoItems.length">
     <li v-for="toDoItem in toDoItems" v-bind:key="toDoItem">
       {{toDoItem.title}}
-    </li>
+    </li> 
   </ul>
 
 

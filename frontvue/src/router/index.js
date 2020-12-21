@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import ApiCall from '../views/ApiGetTest.vue'
+import TODO from '../views/Todo.vue'
 
  
 Vue.use(VueRouter)
@@ -24,6 +25,11 @@ const routes = [
     path : '/apiCall',
     name : 'ApiCall',
     component : ApiCall 
+  },{
+
+    path : '/todo',
+    name : 'TODO',
+    component : TODO 
   }
 ]
 

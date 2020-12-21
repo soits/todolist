@@ -11,10 +11,10 @@
         <b-container fluid>
           <b-row class="my-1">
             <b-col sm="10">
-              <b-form-input v-model="title" type="text" placeholder="새 할 일을 적으세요." />
+              <b-form-input v-model="inputName" type="text" placeholder="새 할 일을 적으세요." />
             </b-col>
             <b-col sm="2">
-              <b-button variant="outline-primary">추가</b-button>
+              <b-button @click="set" variant="outline-primary">추가</b-button>
             </b-col>
           </b-row>
         </b-container>
@@ -23,15 +23,16 @@
       <b-list-group v-if="toDoItems && toDoItems.length">
          <b-list-group-item
           v-for="toDoItem of toDoItems"
-          v-bind:data="toDoItem.title"
+          v-bind:data="toDoItem.name"
           v-bind:key="toDoItem.id">
           <b-form-checkbox
              v-model="toDoItem.done">
-              {{toDoItem.title}}
+              {{toDoItem.name}}
            </b-form-checkbox>
          </b-list-group-item>
       </b-list-group>
   </b-card>
+  <button @click="get">할일조회</button>
   </div>
 </template>
 
@@ -41,11 +42,23 @@ import axios from 'axios'
 export default {
    data() {
     return {
-      toDoItems: []
+      toDoItems: [],
+      inputName : ""
     }
   },
   methods: {
     get() {
+    var data = {
+      items: [        
+        { name: 'Foo' },
+        { name: 'Bar' },
+        { name : 'too' }
+      ]
+    }        
+      this.toDoItems = data.items;
+      console.log('this.toDoItems', this.toDoItems);
+
+      /*
       console.log('test2')
       axios.get('http://192.168.62.45:5000/todo', {
           params: {       
@@ -58,6 +71,18 @@ export default {
       }).then(function () {
         // always executed
       })
+      */
+    },
+    set () {
+    
+      console.log(this.inputName);
+
+      var data = {
+        name : ""
+      }
+      data.name = this.inputName;
+      console.log(data);
+      this.toDoItems.push(data);
     }
   } 
 }

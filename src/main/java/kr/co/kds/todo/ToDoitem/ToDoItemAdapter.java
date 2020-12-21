@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ToDoItemAdapter {
+public class ToDoItemAdapter { 
 
     public static ToDoItem toToDoItem(final ToDoItemRequest toDoItemRequest) {
         if(toDoItemRequest == null) {

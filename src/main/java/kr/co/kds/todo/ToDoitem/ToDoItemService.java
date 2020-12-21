@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ToDoItemService {
-    @Autowired
+    @Autowired 
     private ToDoItemRepository toDoItemRepository;
 
     public List<ToDoItem> getAll() {

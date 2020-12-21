@@ -11,5 +11,5 @@ public class ToDoItemResponse extends ApiResponse<ToDoItem> {
     public ToDoItemResponse(final ToDoItem toDoItem, final List<String> errors) {
         this.setData(toDoItem);
         this.setErrors(errors);
-    }
+    } 
 }

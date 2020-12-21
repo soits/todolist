@@ -18,7 +18,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 @Entity
-public class ToDoItem {
+public class ToDoItem { 
 	
 	/*
 	CREATE TABLE `to_do_item` (

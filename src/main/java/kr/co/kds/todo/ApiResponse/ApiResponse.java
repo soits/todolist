@@ -8,5 +8,5 @@ import java.util.List;
 @NoArgsConstructor
 public abstract class ApiResponse<T> {
     private T data;
-    private List<String> errors;
+    private List<String> errors; 
 }

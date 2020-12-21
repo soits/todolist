@@ -5,4 +5,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ToDoItemRepository extends JpaRepository<ToDoItem, Integer> {
-}
+} 

@@ -14,7 +14,7 @@
               <b-form-input v-model="inputName" type="text" placeholder="새 할 일을 적으세요." />
             </b-col>
             <b-col sm="2">
-              <b-button @click="set" variant="outline-primary">추가</b-button>
+              <b-button v-if="isButtonDisabled" @click="set" variant="outline-primary">추가</b-button>
             </b-col>
           </b-row>
         </b-container>
@@ -22,12 +22,12 @@
 
       <b-list-group v-if="toDoItems && toDoItems.length">
          <b-list-group-item
-          v-for="toDoItem of toDoItems"
-          v-bind:data="toDoItem.name"
+          v-for="toDoItem in toDoItems"
+          v-bind:data="toDoItem.title"
           v-bind:key="toDoItem.id">
           <b-form-checkbox
              v-model="toDoItem.done">
-              {{toDoItem.name}}
+              {{toDoItem.title}}
            </b-form-checkbox>
          </b-list-group-item>
       </b-list-group>
@@ -43,46 +43,50 @@ export default {
    data() {
     return {
       toDoItems: [],
-      inputName : ""
+      inputName : "",
+      isButtonDisabled : false
+    }
+  },
+  watch : {
+    toDoItems : function (toDoItems){
+      this.toDoItems = toDoItems;
     }
   },
   methods: {
     get() {
-    var data = {
-      items: [        
-        { name: 'Foo' },
-        { name: 'Bar' },
-        { name : 'too' }
-      ]
-    }        
-      this.toDoItems = data.items;
-      console.log('this.toDoItems', this.toDoItems);
-
-      /*
-      console.log('test2')
+      let self = this;
+      self.isButtonDisabled = true
       axios.get('http://192.168.62.45:5000/todo', {
           params: {       
           }
       }).then(function (response) {
-        console.log(response);
-        this.toDoItems = response.data.map(r => r.data);
+        self.toDoItems = response.data.map(r => r.data);
       }).catch(function (error) {
-        console.log(error);
+        console.error(error);
       }).then(function () {
         // always executed
-      })
-      */
+      })      
     },
     set () {
-    
-      console.log(this.inputName);
+      let self = this;
 
-      var data = {
-        name : ""
-      }
-      data.name = this.inputName;
-      console.log(data);
-      this.toDoItems.push(data);
+      if(!self.inputName.trim()){
+        self.inputName = "";
+        alert("할일을 입력해주세요.");
+        return;
+      }          
+      axios.post('http://192.168.62.45:5000/todo', 
+        { 
+          title : self.inputName
+          , done : false
+         }
+      ).then(response => {
+          console.log(response)
+          self.toDoItems.push(response.data.data);
+      }).catch((ex) => {
+          console.error("ERROR!!!!! : ",ex)
+      })
+      
     }
   } 
 }

@@ -40,4 +40,15 @@ public class ToDoItemService {
         
         return toDoItemRepository.save(original);
     }
+    
+    public boolean delete(final Integer id) {
+
+    	if (id == null) {
+            throw new NullPointerException("To Do Item cannot be null");
+        }
+        
+        toDoItemRepository.deleteById(id);
+        
+        return true;
+    }
 }

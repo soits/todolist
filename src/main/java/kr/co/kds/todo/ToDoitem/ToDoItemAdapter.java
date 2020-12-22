@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
+
 public class ToDoItemAdapter { 
 
     public static ToDoItem toToDoItem(final ToDoItemRequest toDoItemRequest) {
@@ -17,9 +19,11 @@ public class ToDoItemAdapter {
                 .build();
     }
 
-    public static ToDoItemResponse toToDoItemResponse(final ToDoItem toDoItem, final List<String> errors) {
-        return ToDoItemResponse.builder()
+    public static ToDoItemResponse toToDoItemResponse(final ToDoItem toDoItem, final List<String> errors, final HttpStatus status) {
+
+    	return ToDoItemResponse.builder()
                 .toDoItem(toDoItem)
+                .status(status)
                 .errors(Optional.ofNullable(errors).orElse(new ArrayList<>()))
                 .build();
     }

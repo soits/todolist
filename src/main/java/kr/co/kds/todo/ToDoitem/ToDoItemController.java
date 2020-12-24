@@ -58,8 +58,8 @@ public class ToDoItemController {
     // Insert
     // POST
     // http://IP:PORT/todo/
-	// REQ : { "title" : "20201218 ø¿¥√¿« «“¿œ" }
-    // RES : { "data": { "id": 11, "title": "20201218 ø¿¥√¿« «“¿œ", "done": false }, "status": "CREATED", "errors": [] }
+	// REQ : { "title" : "20201218" }
+    // RES : { "data": { "id": 11, "title": "20201218", "done": false }, "status": "CREATED", "errors": [] }
     @RequestMapping(method = RequestMethod.POST) 
     public @ResponseBody ToDoItemResponse create(@RequestBody final ToDoItemRequest toDoItemRequest) {
 
@@ -78,8 +78,8 @@ public class ToDoItemController {
     // Update
     // PUT
     // http://IP:PORT/todo/
-    // REQ : { "id" : 13, "title" : "20201218-NEWø¿¥√¿« «“¿œ", "done" : true }
-    // RES : { "data": { "id": 13, "title": "20201218-NEWø¿¥√¿« «“¿œ", "done": true }, "status": "OK", "errors": [] }
+    // REQ : { "id" : 13, "title" : "20201218-NEW", "done" : true }
+    // RES : { "data": { "id": 13, "title": "20201218-NEW", "done": true }, "status": "OK", "errors": [] }
     @RequestMapping(method = RequestMethod.PUT)
     public @ResponseBody ToDoItemResponse update(@RequestBody final ToDoItemRequest toDoItemRequest) {
     	

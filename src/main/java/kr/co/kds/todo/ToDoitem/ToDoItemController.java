@@ -19,7 +19,7 @@ public class ToDoItemController {
     @Autowired
     private ToDoItemService toDoItemService;
 
-    // 전체조회 
+    // SelectAll 
     // GET
     // http://IP:PORT/todo
     // REQ : NONE
@@ -37,7 +37,7 @@ public class ToDoItemController {
         return toDoItemResponses;
     }
     
-    // 단건(id)조회
+    // Select(id)
     // GET
     // http://IP:PORT/todo/id
     // REQ : NONE
@@ -55,7 +55,7 @@ public class ToDoItemController {
         return ToDoItemAdapter.toToDoItemResponse(toDoItem, errors, HttpStatus.OK);
     }
 
-    // 등록
+    // Insert
     // POST
     // http://IP:PORT/todo/
 	// REQ : { "title" : "20201218 오늘의 할일" }
@@ -75,7 +75,7 @@ public class ToDoItemController {
         return ToDoItemAdapter.toToDoItemResponse(toDoItem, errors, HttpStatus.CREATED);
     }
     
-    // 수정
+    // Update
     // PUT
     // http://IP:PORT/todo/
     // REQ : { "id" : 13, "title" : "20201218-NEW오늘의 할일", "done" : true }
@@ -96,7 +96,7 @@ public class ToDoItemController {
 	    return ToDoItemAdapter.toToDoItemResponse(toDoItem, errors, HttpStatus.OK);
     }
     
-    // 삭제
+    // Delete
     // DELETE
     // http://IP:PORT/todo/id
     // REQ : { "id" : 32, "title" : "20201222", "done" : true }

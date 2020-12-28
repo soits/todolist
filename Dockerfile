@@ -11,7 +11,7 @@ VOLUME /tmp
 EXPOSE 5000
 
 # The application's jar file
-ARG JAR_FILE=build/libs/MySpringApp-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/MySpringApp-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
 ADD ${JAR_FILE} to-do-springboot.jar

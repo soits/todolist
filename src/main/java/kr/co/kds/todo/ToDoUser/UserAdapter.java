@@ -12,9 +12,10 @@ public class UserAdapter {
         if(userReq == null) return null;
 
         return User.builder()
+                .user_no(userReq.getUser_no())
                 .name(userReq.getName())
                 .password(userReq.getPassword())
-                .deaprtment(userReq.getDeaprtment())
+                .dept_no(userReq.getDept_no())
                 .build(); 
     }
 

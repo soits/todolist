@@ -19,6 +19,6 @@ public class UserService {
         if(user == null) {
     		throw new NullPointerException("User info cannot be null.");
     	}
-        return userRepo.findUser(user.getName(), user.getPassword(), user.getDeaprtment());
+        return userRepo.findUser(user.getName(), user.getPassword(), user.getDept_no());
     }
 }

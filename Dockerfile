@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM java:11
+FROM java:8
 
 # Add Author info
 LABEL maintainer="kyounghun.jun@gmail.com"

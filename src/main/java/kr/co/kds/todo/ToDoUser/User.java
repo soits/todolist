@@ -11,6 +11,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+    /*
+	CREATE TABLE `USER` (
+		`id` INT(11) NOT NULL AUTO_INCREMENT,
+		`user_no` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+        `dept_no` VARCHAR(3) NOT NULL COLLATE 'utf8_general_ci',
+        `name` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+        `password` VARCHAR(100) NOT NULL COLLATE 'utf8_general_ci',
+		PRIMARY KEY (`id`) USING BTREE
+	)
+    */
+    
 @Data
 @Getter @Setter
 @NoArgsConstructor

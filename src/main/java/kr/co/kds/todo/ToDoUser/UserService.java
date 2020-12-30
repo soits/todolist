@@ -15,10 +15,10 @@ public class UserService {
     	return userRepo.save(user);
     }
 
-    public User login(final User user){
+    public User login(User user){
         if(user == null) {
     		throw new NullPointerException("User info cannot be null.");
-    	}
-        return userRepo.findUser(user.getName(), user.getPassword(), user.getDept_no());
+        }                
+        return userRepo.findByNameAndPasswordAndDeptNo(user.getName(), user.getPassword(), user.getDeptNo());
     }
 }

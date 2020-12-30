@@ -1,13 +1,12 @@
 package kr.co.kds.todo.ToDoUser;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    
-    @Query("select user_no from User where name =: name and password =: password and dept_no =: dept_no")
-    User findUser(String name, String password, String dept_no);
 
+    User findByNameAndPasswordAndDeptNo(String name, String password, String deptNo);
 }

@@ -1,8 +1,11 @@
 package kr.co.kds.todo.ToDoUser;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,14 +31,17 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name = "User")
 public class User {
     
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer user_no;
-    private String dept_no;    
-    private String name;    
-    private String password;    
-	
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;    
 
+    @Column(name = "user_no")
+    private String userNo;
+    @Column(name = "dept_no")
+    private String deptNo;  
+    private String name;
+    private String password;
 }
